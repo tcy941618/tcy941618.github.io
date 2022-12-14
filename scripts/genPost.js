@@ -22,7 +22,7 @@ const genPosts = (dir='') => {
             if(file.name.endsWith('.md')) {
                 const filename = path.join(distDir,dayjs().format("YYYY-MM-DD")+'-'+file.name)
                 fs.copyFileSync(path.join(postPath,dir,file.name), filename, fs.constants.COPYFILE_FICLONE)
-                const header = Buffer.from('---\n---')
+                const header = Buffer.from(`---\ntitle:${file.name}\n---\n`)
                 const content = fs.readFileSync(filename)
                 fs.writeFileSync(filename,header+content)
             }else {
