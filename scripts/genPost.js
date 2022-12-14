@@ -15,14 +15,14 @@ const genPosts = (dir='') => {
             genPosts(path.join(dir, file.name))
         }else {
             const distDir = path.join(distPath, dir)
-            const distFile = path.join(distDir,file.name)
+            const distFile = path.join(distDir,dayjs().format("YYYY-MM-DD")+file.name)
             mkdirp.sync(distDir)
             fs.copyFileSync(path.join(postPath,dir,file.name), distFile, fs.constants.COPYFILE_FICLONE)
             
             if(file.name.endsWith('.md')) {
                 const header = Buffer.from('---\n---')
                 const content = fs.readFileSync(distFile)
-                fs.writeFileSync(path.join(distDir,dayjs().format("YYYY-MM-DD")+file.name),header+content)
+                fs.writeFileSync(distFile,header+content)
             }
         }
     })

@@ -1,0 +1,42 @@
+## describe & test
+
+
+
+## Mock
+
+1、jest.fn()
+
+2、jest.mock(modulePath)
+
+3、`__mocks__`目录
+
+## @testing-library
+
+query
+
+waitFor
+
+fireEvent
+
+customQuery & customRender
+
+## 在react项目中使用
+
+
+
+## 遇到的问题
+
+1、`Error: Not implemented: HTMLCanvasElement.prototype.getContext`
+
+原因：缺少浏览器相关环境，此处是canvas。
+
+解决：下载jest-canvas-mock，并在在jest的`setupFiles`配置中加入
+
+2、`Warning: An update to Auth inside a test was not wrapped in act(...).`
+
+`When testing, code that causes React state updates should be wrapped into act(...)`
+
+原因：在`useEffect(()=>{},[])`中改变了state
+
+解决：render时加上`waitFor`
+
