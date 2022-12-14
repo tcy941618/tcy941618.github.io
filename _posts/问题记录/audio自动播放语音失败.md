@@ -1,2 +1,0 @@
----
----DOMException: play() failed because the user didn't interact with the document first.

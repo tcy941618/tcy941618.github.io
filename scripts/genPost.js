@@ -2,12 +2,11 @@ const fs = require('fs')
 const path = require('path')
 const rimraf = require('rimraf')
 const mkdirp = require('mkdirp')
+const dayjs = require("dayjs");
 
 const rootPath = path.resolve('./')
 const postPath = path.resolve(rootPath,'posts')
 const distPath = path.resolve(rootPath,'_posts')
-
-const posts = []
 
 const genPosts = (dir='') => {
     const files = fs.readdirSync(path.join(postPath,dir), {withFileTypes: true})
@@ -23,7 +22,7 @@ const genPosts = (dir='') => {
             if(file.name.endsWith('.md')) {
                 const header = Buffer.from('---\n---')
                 const content = fs.readFileSync(distFile)
-                fs.writeFileSync(distFile,header+content)
+                fs.writeFileSync(path.join(distDir,dayjs().format("YYYY-MM-DD")+file.name),header+content)
             }
         }
     })
