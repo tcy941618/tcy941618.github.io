@@ -1,0 +1,25 @@
+{
+  "name": "tcy941618.github.io",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "genPost": "./scripts/genPost.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tcy941618/tcy941618.github.io.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tcy941618/tcy941618.github.io/issues"
+  },
+  "homepage": "https://github.com/tcy941618/tcy941618.github.io#readme",
+  "devDependencies": {
+    "husky": "^8.0.2",
+    "mkdirp": "^1.0.4",
+    "rimraf": "^3.0.2"
+  }
+}
