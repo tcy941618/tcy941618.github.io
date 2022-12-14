@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "genPost": "./scripts/genPost.js",
+    "genPost": "node ./scripts/genPost.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
