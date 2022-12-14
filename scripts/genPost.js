@@ -8,6 +8,8 @@ const rootPath = path.resolve('./')
 const postPath = path.resolve(rootPath,'posts')
 const distPath = path.resolve(rootPath,'_posts')
 
+let current = 1
+
 const genPosts = (dir='') => {
     const files = fs.readdirSync(path.join(postPath,dir), {withFileTypes: true})
     files.forEach(file=>{
@@ -20,11 +22,12 @@ const genPosts = (dir='') => {
             
             
             if(file.name.endsWith('.md')) {
-                const filename = path.join(distDir,dayjs().format("YYYY-MM-DD")+'-'+file.name)
+                const filename = path.join(distDir,dayjs().subtract((Math.random()*30+5)*current, 'days').format("YYYY-MM-DD")+'-'+file.name)
                 fs.copyFileSync(path.join(postPath,dir,file.name), filename, fs.constants.COPYFILE_FICLONE)
                 const header = Buffer.from(`---\ntitle: ${file.name}\n---\n`)
                 const content = fs.readFileSync(filename)
                 fs.writeFileSync(filename,header+content)
+                current += 1
             }else {
                 fs.copyFileSync(path.join(postPath,dir,file.name), distFile, fs.constants.COPYFILE_FICLONE)
             }
