@@ -1,5 +1,5 @@
 ---
-title: websocket.md
+title: websocket
 ---
 ## 介绍
 
