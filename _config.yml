@@ -2,6 +2,8 @@ title: tcy的笔记
 description: 每一次记录都是向前的脚步，加油~
 timezone: Asia/Shanghai
 
+future: true
+
 remote_theme: pages-themes/dinky@v0.2.0
 plugins:
 - jekyll-remote-theme
